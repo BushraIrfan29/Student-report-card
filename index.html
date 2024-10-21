@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .report-card {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .subject {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Report Card</h1>
+    <form id="reportForm">
+        <input type="text" id="studentName" placeholder="Student Name" required>
+        <input type="text" id="subject1" placeholder="Subject 1" required>
+        <input type="number" id="grade1" placeholder="Grade 1" min="0" max="100" required>
+        <input type="text" id="subject2" placeholder="Subject 2" required>
+        <input type="number" id="grade2" placeholder="Grade 2" min="0" max="100" required>
+        <input type="text" id="subject3" placeholder="Subject 3" required>
+        <input type="number" id="grade3" placeholder="Grade 3" min="0" max="100" required>
+        <button type="submit">Generate Report Card</button>
+    </form>
+
+    <div class="report-card" id="reportCard">
+        <h2>Report Card for <span id="nameDisplay"></span></h2>
+        <div class="subject">
+            <strong><span id="subject1Display"></span>:</strong> <span id="grade1Display"></span>
+        </div>
+        <div class="subject">
+            <strong><span id="subject2Display"></span>:</strong> <span id="grade2Display"></span>
+        </div>
+        <div class="subject">
+            <strong><span id="subject3Display"></span>:</strong> <span id="grade3Display"></span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const studentName = document.getElementById('studentName').value;
+            const subject1 = document.getElementById('subject1').value;
+            const grade1 = document.getElementById('grade1').value;
+            const subject2 = document.getElementById('subject2').value;
+            const grade2 = document.getElementById('grade2').value;
+            const subject3 = document.getElementById('subject3').value;
+            const grade3 = document.getElementById('grade3').value;
+
+            document.getElementById('nameDisplay').innerText = studentName;
+            document.getElementById('subject1Display').innerText = subject1;
+            document.getElementById('grade1Display').innerText = grade1;
+            document.getElementById('subject2Display').innerText = subject2;
+            document.getElementById('grade2Display').innerText = grade2;
+            document.getElementById('subject3Display').innerText = subject3;
+            document.getElementById('grade3Display').innerText = grade3;
+
+            document.getElementById('reportCard').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
